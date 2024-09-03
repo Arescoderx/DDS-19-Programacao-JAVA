@@ -12,28 +12,44 @@ import java.util.Scanner;
  * @author m.schmidt
  */
 public class Pratica_Controle_Erros4 {
-
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         int num[] = new int[4];
 
-        System.out.println("Me informe os numero o primerio é o numero e o segundo é o divisor");
-        for (int i = 0; i <= 3; i = i + 2) {
-            System.out.println("Primeiro numero");
-            num[i] = ler.nextInt();
-            System.out.println("Segundo numero");
-            num[i + 1] = ler.nextInt();
+        System.out.println("Informe os números. O primeiro é o número e o segundo é o divisor.");
+
+        for (int i = 0; i <= 3; i += 2) {
+            for (;;) {
+                System.out.println("Primeiro número:");
+                try {
+                    num[i] = Integer.parseInt(ler.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida! Por favor, insira um número inteiro válido.");
+                }
+            }
+
+            for (;;) {
+                System.out.println("Segundo número (divisor):");
+                try {
+                    num[i + 1] = Integer.parseInt(ler.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida! Por favor, insira um número inteiro válido.");
+                }
+            }
         }
+        
         for (int i = 0; i <= 3; i = i + 2) {
             try {
-              int resultado= Integer.parseInt(num[i]/num[i+1]);
-               
+                int resultado = (num[i] / num[i + 1]);
+                System.out.println(resultado);
             } catch (ArithmeticException e) {
                 System.out.println("Erro: Divisao por zero");
             } catch (NumberFormatException e) {
                 System.out.println("Erro ao converter: " + e.getMessage());
             }
-              
+
         }
 
         ler.close();
