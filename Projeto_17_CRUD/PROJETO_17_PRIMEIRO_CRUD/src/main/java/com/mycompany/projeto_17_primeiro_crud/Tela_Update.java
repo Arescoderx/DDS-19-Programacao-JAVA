@@ -8,17 +8,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author m.schmidt
  */
-public class Tela_Create extends javax.swing.JFrame {
+public class Tela_Update extends javax.swing.JFrame {
 
     /**
-     * Creates new form Tela_Create
+     * Creates new form Tela_Update
      */
-    public Tela_Create() {
+    public Tela_Update() {
         initComponents();
     }
 
@@ -31,101 +33,108 @@ public class Tela_Create extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        JLB_Cadastro = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        JTextF_Nome = new javax.swing.JTextField();
-        JTextF_Sobrenome = new javax.swing.JTextField();
-        JTextF_CPF = new javax.swing.JTextField();
-        JBN_Adicionar = new javax.swing.JButton();
-        JTextF_Numero = new javax.swing.JTextField();
-        JBL_Nome = new javax.swing.JLabel();
-        JBL_Sobrenome = new javax.swing.JLabel();
-        JBL_CPF = new javax.swing.JLabel();
-        JBL_Numero = new javax.swing.JLabel();
+        JBL_ID = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        JBL_Nome = new javax.swing.JLabel();
+        JTextF_Nome = new javax.swing.JTextField();
+        JBL_Sobrenome = new javax.swing.JLabel();
+        JTextF_Sobrenome = new javax.swing.JTextField();
+        JBL_CPF = new javax.swing.JLabel();
+        JTextF_CPF = new javax.swing.JTextField();
+        JBL_Numero = new javax.swing.JLabel();
+        JTextF_Numero = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(400, 400));
-        setMinimumSize(new java.awt.Dimension(400, 400));
+        setMinimumSize(new java.awt.Dimension(430, 450));
+        setPreferredSize(new java.awt.Dimension(400, 400));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 400));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 400));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLB_Cadastro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        JLB_Cadastro.setForeground(new java.awt.Color(0, 0, 0));
-        JLB_Cadastro.setText("CADASTRO");
-        jPanel1.add(JLB_Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 120, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("EDITAR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(400, 300));
-        jPanel2.setMinimumSize(new java.awt.Dimension(400, 300));
-        jPanel2.setPreferredSize(new java.awt.Dimension(400, 300));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(JTextF_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 230, -1));
-        jPanel2.add(JTextF_Sobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 230, -1));
-        jPanel2.add(JTextF_CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 230, -1));
+        jPanel2.add(JBL_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 70, -1));
 
-        JBN_Adicionar.setBackground(new java.awt.Color(51, 255, 51));
-        JBN_Adicionar.setText("Adicionar");
-        JBN_Adicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBN_AdicionarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(JBN_Adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
-        jPanel2.add(JTextF_Numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, -1));
+        jLabel3.setText("ID:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, 20));
 
-        JBL_Nome.setText("Nome:");
-        jPanel2.add(JBL_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, -1));
-
-        JBL_Sobrenome.setText("Sobrenome:");
-        jPanel2.add(JBL_Sobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        JBL_CPF.setText("CPF:");
-        jPanel2.add(JBL_CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        JBL_Numero.setText("Celular:");
-        jPanel2.add(JBL_Numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 360, 220));
-
-        jButton1.setText("ADICIONAR");
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setText("SALVAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
 
-        jButton2.setText("PROCURAR");
+        JBL_Nome.setText("Nome:");
+        jPanel2.add(JBL_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, -1));
+
+        JTextF_Nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextF_NomeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(JTextF_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, -1));
+
+        JBL_Sobrenome.setText("Sobrenome:");
+        jPanel2.add(JBL_Sobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel2.add(JTextF_Sobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, -1));
+
+        JBL_CPF.setText("CPF:");
+        jPanel2.add(JBL_CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel2.add(JTextF_CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 230, -1));
+
+        JBL_Numero.setText("Celular:");
+        jPanel2.add(JBL_Numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        jPanel2.add(JTextF_Numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 360, 290));
+
+        jButton2.setText("ADICIONAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
-        jButton3.setText("EDITAR");
+        jButton3.setText("PROCURAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, -1, -1));
 
-        jButton4.setText("DELETE");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("EDITAR");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
+
+        jButton5.setText("DELETE");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,16 +144,24 @@ public class Tela_Create extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBN_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBN_AdicionarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Tela_Update.this.dispose();
+        Tela_Create Tela_Create = new Tela_Create();
+        Tela_Create.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+
             Connection conexao = null;
             PreparedStatement statement = null;
 
@@ -153,45 +170,40 @@ public class Tela_Create extends javax.swing.JFrame {
             String senha = "";
 
             conexao = DriverManager.getConnection(url, usuario, senha);
-            String sql = "INSERT INTO cadastro (Nome,Sobrenome,CPF,Numero) "
-                    + "VALUES (?, ?, ?, ?)";
+
+            String sql = "UPDATE cadastro SET Nome = ? , Sobrenome = ? , CPF = ?, Numero = ? WHERE Id = ?";
+
             statement = conexao.prepareStatement(sql);
+
             statement.setString(1, JTextF_Nome.getText()); //Nome
             statement.setString(2, JTextF_Sobrenome.getText()); //Sobrenome
             statement.setString(3, JTextF_CPF.getText()); //CPF
             statement.setString(4, JTextF_Numero.getText()); //Numero
-
+            statement.setString(5, JBL_ID.getText()); //Id
             statement.executeUpdate();
-            System.out.println("Você foi Cadastrado");
+            
         } catch (SQLException ex) {
-            System.out.println("Erro no codigo" + ex.getMessage());
+            Logger.getLogger(Tela_Update.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_JBN_AdicionarActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void JTextF_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextF_NomeActionPerformed
         // TODO add your handling code here:
-        Tela_Create.this.dispose();
-        Tela_Read Tela_Read = new Tela_Read();
-        Tela_Read.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_JTextF_NomeActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Tela_Create.this.dispose();
-        Tela_Update Tela_Update = new Tela_Update();
-        Tela_Update.setVisible(true);
+        Tela_Update.this.dispose();
+        Tela_Read Tela_Read = new Tela_Read();
+        Tela_Read.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Tela_Create.this.dispose();
+        Tela_Update.this.dispose();
         Tela_Delete Tela_Delete = new Tela_Delete();
         Tela_Delete.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,31 +222,30 @@ public class Tela_Create extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Update.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Update.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Update.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Create.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Update.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Create().setVisible(true);
+                new Tela_Update().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JBL_CPF;
+    private javax.swing.JTextField JBL_ID;
     private javax.swing.JLabel JBL_Nome;
     private javax.swing.JLabel JBL_Numero;
     private javax.swing.JLabel JBL_Sobrenome;
-    private javax.swing.JButton JBN_Adicionar;
-    private javax.swing.JLabel JLB_Cadastro;
     private javax.swing.JTextField JTextF_CPF;
     private javax.swing.JTextField JTextF_Nome;
     private javax.swing.JTextField JTextF_Numero;
@@ -243,6 +254,10 @@ public class Tela_Create extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
